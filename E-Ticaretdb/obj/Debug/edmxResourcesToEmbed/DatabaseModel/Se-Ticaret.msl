@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities2">
+    <EntitySetMapping Name="Müşteri">
+      <EntityTypeMapping TypeName="Model.Müşteri">
+        <MappingFragment StoreEntitySet="Müşteri">
+          <ScalarProperty Name="MüşteriID" ColumnName="MüşteriID" />
+          <ScalarProperty Name="MüşteriAdı" ColumnName="MüşteriAdı" />
+          <ScalarProperty Name="e_Mail" ColumnName="e-Mail" />
+          <ScalarProperty Name="Şifre" ColumnName="Şifre" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="MüşteriTipiID" ColumnName="MüşteriTipiID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MüşteriTipi">
+      <EntityTypeMapping TypeName="Model.MüşteriTipi">
+        <MappingFragment StoreEntitySet="MüşteriTipi">
+          <ScalarProperty Name="MüşteriTipiID" ColumnName="MüşteriTipiID" />
+          <ScalarProperty Name="TipAdı" ColumnName="TipAdı" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SepetItems">
+      <EntityTypeMapping TypeName="Model.SepetItems">
+        <MappingFragment StoreEntitySet="SepetItems">
+          <ScalarProperty Name="SepetItemsID" ColumnName="SepetItemsID" />
+          <ScalarProperty Name="SepetID" ColumnName="SepetID" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slayt">
+      <EntityTypeMapping TypeName="Model.Slayt">
+        <MappingFragment StoreEntitySet="Slayt">
+          <ScalarProperty Name="SlaytID" ColumnName="SlaytID" />
+          <ScalarProperty Name="SlaytAdı" ColumnName="SlaytAdı" />
+          <ScalarProperty Name="SlaytOlusturmaTarihi" ColumnName="SlaytOlusturmaTarihi" />
+          <ScalarProperty Name="BaşlamaTarih" ColumnName="BaşlamaTarih" />
+          <ScalarProperty Name="BitişTarih" ColumnName="BitişTarih" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SlaytItems">
+      <EntityTypeMapping TypeName="Model.SlaytItems">
+        <MappingFragment StoreEntitySet="SlaytItems">
+          <ScalarProperty Name="SlaytItemsID" ColumnName="SlaytItemsID" />
+          <ScalarProperty Name="SlaytID" ColumnName="SlaytID" />
+          <ScalarProperty Name="SlaytResim" ColumnName="SlaytResim" />
+          <ScalarProperty Name="SipResim" ColumnName="SipResim" />
+          <ScalarProperty Name="Slogan" ColumnName="Slogan" />
+          <ScalarProperty Name="AltSlogan" ColumnName="AltSlogan" />
+          <ScalarProperty Name="UrunURL" ColumnName="UrunURL" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ToplamUrunSayısı">
+      <EntityTypeMapping TypeName="Model.ToplamUrunSayısı">
+        <MappingFragment StoreEntitySet="ToplamUrunSayısı">
+          <ScalarProperty Name="UrunSiparisSayıID" ColumnName="UrunSiparisSayıID" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="SiparisSayısı" ColumnName="SiparisSayısı" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrunGörüntüleme">
+      <EntityTypeMapping TypeName="Model.UrunGörüntüleme">
+        <MappingFragment StoreEntitySet="UrunGörüntüleme">
+          <ScalarProperty Name="UrunGörüntülemeID" ColumnName="UrunGörüntülemeID" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="Görüntüleme" ColumnName="Görüntüleme" />
+          <ScalarProperty Name="GörüntülemeTarihi" ColumnName="GörüntülemeTarihi" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrunZiyaretcileri">
+      <EntityTypeMapping TypeName="Model.UrunZiyaretcileri">
+        <MappingFragment StoreEntitySet="UrunZiyaretcileri">
+          <ScalarProperty Name="UrunZiyaretciID" ColumnName="UrunZiyaretciID" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="MüsteriID" ColumnName="MüsteriID" />
+          <ScalarProperty Name="ZiyaretTarihi" ColumnName="ZiyaretTarihi" />
+          <ScalarProperty Name="ÖnerilenUrunUrl" ColumnName="ÖnerilenUrunUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WebSiteBlog">
+      <EntityTypeMapping TypeName="Model.WebSiteBlog">
+        <MappingFragment StoreEntitySet="WebSiteBlog">
+          <ScalarProperty Name="WebSiteBlokID" ColumnName="WebSiteBlokID" />
+          <ScalarProperty Name="BlogAdı" ColumnName="BlogAdı" />
+          <ScalarProperty Name="BlogHtml" ColumnName="BlogHtml" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sepet">
+      <EntityTypeMapping TypeName="Model.Sepet">
+        <MappingFragment StoreEntitySet="Sepet">
+          <ScalarProperty Name="SepetNo" ColumnName="SepetNo" />
+          <ScalarProperty Name="MüşSepetID" ColumnName="MüşSepetID" />
+          <ScalarProperty Name="SiparisTarihi" ColumnName="SiparisTarihi" />
+          <ScalarProperty Name="SepetID" ColumnName="SepetID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnÇokSatanUrunler">
+      <EntityTypeMapping TypeName="Model.EnÇokSatanUrunler">
+        <MappingFragment StoreEntitySet="EnÇokSatanUrunler">
+          <ScalarProperty Name="ResimYolu" ColumnName="ResimYolu" />
+          <ScalarProperty Name="SeoPath" ColumnName="SeoPath" />
+          <ScalarProperty Name="Stok" ColumnName="Stok" />
+          <ScalarProperty Name="BirimFiyatı" ColumnName="BirimFiyatı" />
+          <ScalarProperty Name="UrunAdı" ColumnName="UrunAdı" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EnÇokZiyaretEdilenUrun">
+      <EntityTypeMapping TypeName="Model.EnÇokZiyaretEdilenUrun">
+        <MappingFragment StoreEntitySet="EnÇokZiyaretEdilenUrun">
+          <ScalarProperty Name="ResimYolu" ColumnName="ResimYolu" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="SeoPath" ColumnName="SeoPath" />
+          <ScalarProperty Name="UrunAdı" ColumnName="UrunAdı" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marka">
+      <EntityTypeMapping TypeName="Model.Marka">
+        <MappingFragment StoreEntitySet="Marka">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="MarkaLogo" ColumnName="MarkaLogo" />
+          <ScalarProperty Name="MarkaAdı" ColumnName="MarkaAdı" />
+          <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunler">
+      <EntityTypeMapping TypeName="Model.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="SeoPath" ColumnName="SeoPath" />
+          <ScalarProperty Name="EklenmeTARİHİ" ColumnName="EklenmeTARİHİ" />
+          <ScalarProperty Name="MarkaID" ColumnName="MarkaID" />
+          <ScalarProperty Name="Açıklama" ColumnName="Açıklama" />
+          <ScalarProperty Name="Stok" ColumnName="Stok" />
+          <ScalarProperty Name="BirimFiyat" ColumnName="BirimFiyat" />
+          <ScalarProperty Name="UrunAdı" ColumnName="UrunAdı" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrunResim">
+      <EntityTypeMapping TypeName="Model.UrunResim">
+        <MappingFragment StoreEntitySet="UrunResim">
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+          <ScalarProperty Name="KategoriSiparişleri" ColumnName="KategoriSiparişleri" />
+          <ScalarProperty Name="ResimYolu" ColumnName="ResimYolu" />
+          <ScalarProperty Name="UrunResimID" ColumnName="UrunResimID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategori">
+      <EntityTypeMapping TypeName="Model.Kategori">
+        <MappingFragment StoreEntitySet="Kategori">
+          <ScalarProperty Name="SiparişNo" ColumnName="SiparişNo" />
+          <ScalarProperty Name="SeoLink" ColumnName="SeoLink" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="KategoriAdı" ColumnName="KategoriAdı" />
+          <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

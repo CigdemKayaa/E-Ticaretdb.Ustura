@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="E_Ticaretdb.WCFService.UrunWCFServis" CodeBehind="UrunWCFServis.svc.cs" %>

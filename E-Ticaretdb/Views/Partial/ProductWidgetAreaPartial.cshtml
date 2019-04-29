@@ -1,0 +1,67 @@
+﻿@model E_Ticaretdb.Models.ProductWidgetAreaModel
+<div class="product-widget-area">
+    <div class="zigzag-bottom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="single-product-widget">
+                    <h2 class="product-wid-title">Yeni Ürünler</h2>
+                   @foreach (var item in Model.TopNew)
+                    {
+                        <div class="single-wid-product">
+                            <a href="single-product.html"><img src="/img/@item.UrunResim.OrderBy(x=>x.KategoriSiparişleri).FirstOrDefault().ResimYolu" alt="" class="product-thumb"></a>
+                            <h2><a href="/UrunDetay/@item.SeoPath">@item.UrunAdı</a></h2>
+                            
+                            <div class="product-wid-price">
+                                <ins>@item.BirimFiyat.Value.ToString("C")</ins> 
+                            </div>
+                        </div>
+                    }
+
+
+                       
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-product-widget">
+                    <h2 class="product-wid-title">Popüler Ürün</h2>
+                   @foreach (var item in Model.TopVisitProduct)
+                    {
+                        <div class="single-wid-product">
+                            <a href="single-product.html"><img src="/img/@item.ResimYolu" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.html">@item.UrunAdı</a></h2>
+                           
+                            <div class="product-wid-price">
+                                <ins>@item.BirimFiyat.Value.ToString("C")</ins> 
+                            </div>
+                        </div>
+                        
+
+                    }
+
+
+
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-product-widget">
+                    <h2 class="product-wid-title">EN ÇOK SATILANLAR</h2>
+                   @foreach (var item in Model.TopProducts)
+                    {
+                    <div class="single-wid-product">
+                        <a href="single-product.html"><img src="/img/@item.ResimYolu" alt="" class="product-thumb"></a>
+                        <h2><a href="single-product.html">@item.UrunAdı</a></h2>
+                       
+                        <div class="product-wid-price">
+                            <ins>@item.BirimFiyatı.Value.ToString("C")</ins> 
+                        </div>
+                    </div>
+
+                    }
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

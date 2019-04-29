@@ -1,0 +1,28 @@
+﻿@model List<E_Ticaretdb.DatabaseModel.SlaytItems>
+
+<div class="slider-area">
+    <!-- Slider -->
+    <div class="block-slider block-slider4" style="width:auto">
+        <ul class="" id="bxslider-home4">
+            @foreach (var item in Model)
+            {
+            <li>
+                <img src="/img/@item.SlaytResim" alt="Slayt">
+                <div class="caption-group">
+                    <h2 class="caption title">
+                        @item.Slogan
+                    </h2>
+                   
+
+                    <h4 class="caption subtitle"> @item.AltSlogan</h4>
+                    <a class="caption button-radius" href="@item.UrunURL"><span class="icon"></span>Satın Al </a>
+                </div>
+            </li>
+            }
+            
+        </ul>
+    </div>
+   <br />
+
+    <!-- ./Slider -->
+</div>

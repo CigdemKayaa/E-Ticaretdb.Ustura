@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EnÇokSatanUrunler">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="BirimFiyatı" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Stok" Type="int" />
+    <Property Name="SeoPath" Type="nvarchar" MaxLength="50" />
+    <Property Name="ResimYolu" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="EnÇokZiyaretEdilenUrun">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="SeoPath" Type="nvarchar" MaxLength="50" />
+    <Property Name="BirimFiyat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ResimYolu" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="KategoriID" />
+    </Key>
+    <Property Name="KategoriID" Type="int" Nullable="false" />
+    <Property Name="KategoriAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="Durum" Type="bit" />
+    <Property Name="SeoLink" Type="nvarchar" MaxLength="50" />
+    <Property Name="SiparişNo" Type="int" />
+  </EntityType>
+  <EntityType Name="Marka">
+    <Key>
+      <PropertyRef Name="MarkaID" />
+    </Key>
+    <Property Name="MarkaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MarkaAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkaLogo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="Müşteri">
+    <Key>
+      <PropertyRef Name="MüşteriID" />
+    </Key>
+    <Property Name="MüşteriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MüşteriAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="e-Mail" Type="nvarchar" MaxLength="20" />
+    <Property Name="Şifre" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="int" />
+    <Property Name="MüşteriTipiID" Type="int" />
+  </EntityType>
+  <EntityType Name="MüşteriTipi">
+    <Key>
+      <PropertyRef Name="MüşteriTipiID" />
+    </Key>
+    <Property Name="MüşteriTipiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="Durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="Sepet">
+    <Key>
+      <PropertyRef Name="SepetID" />
+    </Key>
+    <Property Name="SepetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SiparisTarihi" Type="date" />
+    <Property Name="MüşSepetID" Type="int" />
+    <Property Name="SepetNo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SepetItems">
+    <Key>
+      <PropertyRef Name="SepetItemsID" />
+    </Key>
+    <Property Name="SepetItemsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SepetID" Type="int" />
+    <Property Name="UrunID" Type="int" />
+    <Property Name="BirimFiyat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Miktar" Type="int" />
+  </EntityType>
+  <EntityType Name="Slayt">
+    <Key>
+      <PropertyRef Name="SlaytID" />
+    </Key>
+    <Property Name="SlaytID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SlaytAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="SlaytOlusturmaTarihi" Type="datetime" />
+    <Property Name="BaşlamaTarih" Type="datetime" />
+    <Property Name="BitişTarih" Type="datetime" />
+    <Property Name="Durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="SlaytItems">
+    <Key>
+      <PropertyRef Name="SlaytItemsID" />
+    </Key>
+    <Property Name="SlaytItemsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SlaytID" Type="int" />
+    <Property Name="SlaytResim" Type="nvarchar" MaxLength="50" />
+    <Property Name="SipResim" Type="nvarchar" MaxLength="50" />
+    <Property Name="Slogan" Type="nvarchar" MaxLength="50" />
+    <Property Name="AltSlogan" Type="nvarchar" MaxLength="50" />
+    <Property Name="UrunURL" Type="nvarchar" MaxLength="50" />
+    <Property Name="Durum" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="ToplamUrunSayısı">
+    <Key>
+      <PropertyRef Name="UrunSiparisSayıID" />
+    </Key>
+    <Property Name="UrunSiparisSayıID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunID" Type="int" />
+    <Property Name="SiparisSayısı" Type="int" />
+  </EntityType>
+  <EntityType Name="UrunGörüntüleme">
+    <Key>
+      <PropertyRef Name="UrunGörüntülemeID" />
+    </Key>
+    <Property Name="UrunGörüntülemeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunID" Type="int" />
+    <Property Name="Görüntüleme" Type="nvarchar" MaxLength="50" />
+    <Property Name="GörüntülemeTarihi" Type="datetime" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="BirimFiyat" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="Stok" Type="int" />
+    <Property Name="Açıklama" Type="nvarchar" MaxLength="50" />
+    <Property Name="MarkaID" Type="int" />
+    <Property Name="EklenmeTARİHİ" Type="datetime" />
+    <Property Name="SeoPath" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UrunResim">
+    <Key>
+      <PropertyRef Name="UrunResimID" />
+    </Key>
+    <Property Name="UrunResimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ResimYolu" Type="nvarchar" MaxLength="100" />
+    <Property Name="KategoriSiparişleri" Type="int" />
+    <Property Name="UrunID" Type="int" />
+  </EntityType>
+  <EntityType Name="UrunZiyaretcileri">
+    <Key>
+      <PropertyRef Name="UrunZiyaretciID" />
+    </Key>
+    <Property Name="UrunZiyaretciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunID" Type="int" />
+    <Property Name="MüsteriID" Type="int" />
+    <Property Name="ZiyaretTarihi" Type="datetime" />
+    <Property Name="ÖnerilenUrunUrl" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WebSiteBlog">
+    <Key>
+      <PropertyRef Name="WebSiteBlokID" />
+    </Key>
+    <Property Name="WebSiteBlokID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BlogAdı" Type="nvarchar" MaxLength="50" />
+    <Property Name="BlogHtml" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Müşteri_Müşteri">
+    <End Role="Müşteri" Type="Self.Müşteri" Multiplicity="0..1" />
+    <End Role="Müşteri1" Type="Self.Müşteri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Müşteri">
+        <PropertyRef Name="MüşteriID" />
+      </Principal>
+      <Dependent Role="Müşteri1">
+        <PropertyRef Name="MüşteriTipiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Müşteri_MüşteriTipi">
+    <End Role="MüşteriTipi" Type="Self.MüşteriTipi" Multiplicity="0..1" />
+    <End Role="Müşteri" Type="Self.Müşteri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MüşteriTipi">
+        <PropertyRef Name="MüşteriTipiID" />
+      </Principal>
+      <Dependent Role="Müşteri">
+        <PropertyRef Name="MüşteriTipiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SepetItems_Sepet">
+    <End Role="Sepet" Type="Self.Sepet" Multiplicity="0..1" />
+    <End Role="SepetItems" Type="Self.SepetItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sepet">
+        <PropertyRef Name="SepetID" />
+      </Principal>
+      <Dependent Role="SepetItems">
+        <PropertyRef Name="SepetID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SepetItems_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="SepetItems" Type="Self.SepetItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="SepetItems">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SlaytItems_Slayt">
+    <End Role="Slayt" Type="Self.Slayt" Multiplicity="0..1" />
+    <End Role="SlaytItems" Type="Self.SlaytItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slayt">
+        <PropertyRef Name="SlaytID" />
+      </Principal>
+      <Dependent Role="SlaytItems">
+        <PropertyRef Name="SlaytID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ToplamUrunSayısı_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="ToplamUrunSayısı" Type="Self.ToplamUrunSayısı" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="ToplamUrunSayısı">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UrunGörüntüleme_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="UrunGörüntüleme" Type="Self.UrunGörüntüleme" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="UrunGörüntüleme">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_EnÇokSatanUrunler">
+    <End Role="EnÇokSatanUrunler" Type="Self.EnÇokSatanUrunler" Multiplicity="1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="EnÇokSatanUrunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urunler_Marka">
+    <End Role="Marka" Type="Self.Marka" Multiplicity="0..1" />
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marka">
+        <PropertyRef Name="MarkaID" />
+      </Principal>
+      <Dependent Role="Urunler">
+        <PropertyRef Name="MarkaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UrunResim_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="UrunResim" Type="Self.UrunResim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="UrunResim">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UrunZiyaretcileri_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="UrunZiyaretcileri" Type="Self.UrunZiyaretcileri" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="UrunZiyaretcileri">
+        <PropertyRef Name="UrunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="EnÇokSatanUrunler" EntityType="Self.EnÇokSatanUrunler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EnÇokZiyaretEdilenUrun" EntityType="Self.EnÇokZiyaretEdilenUrun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marka" EntityType="Self.Marka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Müşteri" EntityType="Self.Müşteri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MüşteriTipi" EntityType="Self.MüşteriTipi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sepet" EntityType="Self.Sepet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SepetItems" EntityType="Self.SepetItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slayt" EntityType="Self.Slayt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SlaytItems" EntityType="Self.SlaytItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ToplamUrunSayısı" EntityType="Self.ToplamUrunSayısı" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunGörüntüleme" EntityType="Self.UrunGörüntüleme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunResim" EntityType="Self.UrunResim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UrunZiyaretcileri" EntityType="Self.UrunZiyaretcileri" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WebSiteBlog" EntityType="Self.WebSiteBlog" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Müşteri_Müşteri" Association="Self.FK_Müşteri_Müşteri">
+      <End Role="Müşteri" EntitySet="Müşteri" />
+      <End Role="Müşteri1" EntitySet="Müşteri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Müşteri_MüşteriTipi" Association="Self.FK_Müşteri_MüşteriTipi">
+      <End Role="MüşteriTipi" EntitySet="MüşteriTipi" />
+      <End Role="Müşteri" EntitySet="Müşteri" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SepetItems_Sepet" Association="Self.FK_SepetItems_Sepet">
+      <End Role="Sepet" EntitySet="Sepet" />
+      <End Role="SepetItems" EntitySet="SepetItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SepetItems_Urunler" Association="Self.FK_SepetItems_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="SepetItems" EntitySet="SepetItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SlaytItems_Slayt" Association="Self.FK_SlaytItems_Slayt">
+      <End Role="Slayt" EntitySet="Slayt" />
+      <End Role="SlaytItems" EntitySet="SlaytItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ToplamUrunSayısı_Urunler" Association="Self.FK_ToplamUrunSayısı_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="ToplamUrunSayısı" EntitySet="ToplamUrunSayısı" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UrunGörüntüleme_Urunler" Association="Self.FK_UrunGörüntüleme_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="UrunGörüntüleme" EntitySet="UrunGörüntüleme" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_EnÇokSatanUrunler" Association="Self.FK_Urunler_EnÇokSatanUrunler">
+      <End Role="EnÇokSatanUrunler" EntitySet="EnÇokSatanUrunler" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urunler_Marka" Association="Self.FK_Urunler_Marka">
+      <End Role="Marka" EntitySet="Marka" />
+      <End Role="Urunler" EntitySet="Urunler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UrunResim_Urunler" Association="Self.FK_UrunResim_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="UrunResim" EntitySet="UrunResim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UrunZiyaretcileri_Urunler" Association="Self.FK_UrunZiyaretcileri_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="UrunZiyaretcileri" EntitySet="UrunZiyaretcileri" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
